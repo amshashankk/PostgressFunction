@@ -50,6 +50,7 @@ func AddEmployee(c *gin.Context) {
 
 }
 
+/* 
 //This function will get all employees details from the database
 func GetEmployees(c *gin.Context) {
 	var db = database.DB
@@ -125,4 +126,4 @@ func UpdateEmpDetails(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "Employee details not updated"})
 	}
 
-}
+} */
