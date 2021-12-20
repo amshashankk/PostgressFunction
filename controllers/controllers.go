@@ -17,7 +17,7 @@ func CreateEmployeeTable(c *gin.Context) {
 	Emp := models.Employee{}
 	c.BindJSON(&Emp)
 
-	db.Exec("EmployeeTable($1, $2, $3, $4) ", "Name", "Email", "Phone", "Address").Scan(&models.Employee{})
+	db.Exec("Call EmployeeTable($1, $2, $3, $4) ", "Name", "Email", "Phone", "Address").Scan(&models.Employee{})
 
 	c.JSON(http.StatusOK, gin.H{"message": "Employee table created successfully"})
 
@@ -40,7 +40,7 @@ func AddEmployee(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "Employee address is required"})
 	} else {
 		fmt.Println("Error here")
-		db.Exec("EmployeeTable($1, $2, $3, $4) ", "Name", "Email", "Phone", "Address").Scan(&models.Employee{})
+		db.Exec("Call AddEmployee($1, $2, $3, $4) ", "Name", "Email", "Phone", "Address").Scan(&models.Employee{})
 		c.JSON(http.StatusOK, gin.H{
 			"message":  "Employee added successfully",
 			"Employee": Emp,
